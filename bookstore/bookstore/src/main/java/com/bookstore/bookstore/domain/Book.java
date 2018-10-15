@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Book {
 		@Id
@@ -18,6 +20,8 @@ public class Book {
 	    private String title;
 	    
 	    @ManyToOne
+		// ignore one to many links in repository
+	    @JsonIgnore
 	    @JoinColumn(name = "categoryid")
 	    private Category category;
 	    
